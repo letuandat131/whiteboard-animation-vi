@@ -1,5 +1,9 @@
 # WHITEBOARD ANIMATION VI
 
+<p align="center">
+  <img src="docs/media/demo-02-d.gif" width="640" alt="Whiteboard animation of a character with a bamboo staff">
+</p>
+
 **CHARACTERS FIRST · COLOR GROUPS · INK-AWARE BOUNDARIES · MOVING REAL HANDS**
 
 Turn an illustration into a whiteboard animation: draw the lines, color the
@@ -8,21 +12,6 @@ characters first, then finish the background with moving photographic hands.
 Handdraw combines **subject-first coloring, color-grouped strokes and
 ink-aware region boundaries** in a local Gradio app. Upload an RGB/RGBA image,
 choose the timing and style, and export an MP4.
-
-## SEE THE ANIMATION
-
-Three examples, three rows: **ORIGINAL → DETAILED → QUICK**.
-Both modes use the same 8-second duration, a maximum frame size of 1280×720,
-and **50 FPS**. The looping GIFs are 640 pixels wide, displayed side by side.
-
-| **BAMBOO STAFF** | **TWO CHARACTERS** | **WINTER SCENE** |
-| :---: | :---: | :---: |
-| **ORIGINAL**<br><img src="docs/media/source-02.png" width="280" alt="Original bamboo staff illustration"> | **ORIGINAL**<br><img src="docs/media/source-01.png" width="280" alt="Original two-character illustration"> | **ORIGINAL**<br><img src="docs/media/source-03.png" width="280" alt="Original winter scene illustration"> |
-| **DETAILED**<br><img src="docs/media/demo-02-d.gif" width="280" alt="Detailed bamboo staff animation at 50 FPS"> | **DETAILED**<br><img src="docs/media/demo-01-d.gif" width="280" alt="Detailed two-character animation at 50 FPS"> | **DETAILED**<br><img src="docs/media/demo-03-d.gif" width="280" alt="Detailed winter scene animation at 50 FPS"> |
-| **QUICK**<br><img src="docs/media/demo-02.gif" width="280" alt="Quick bamboo staff animation at 50 FPS"> | **QUICK**<br><img src="docs/media/demo-01.gif" width="280" alt="Quick two-character animation at 50 FPS"> | **QUICK**<br><img src="docs/media/demo-03.gif" width="280" alt="Quick winter scene animation at 50 FPS"> |
-
-These sample illustrations are not covered by the project's code license.
-Confirm permission to redistribute them before publishing these previews.
 
 ---
 
@@ -50,6 +39,42 @@ Confirm permission to redistribute them before publishing these previews.
   composition; optional NVENC encodes GPU frames directly. CPU/libx264 export
   and a Python API are also available. Recent image plans are cached for reuse
   when adjusting timing or hand settings.
+
+## SEE THE TRANSFORMATION
+
+One original, two animation styles: **ORIGINAL → DETAILED → QUICK**.
+Both modes use the same 8-second duration, a maximum frame size of 1280×720,
+and **50 FPS**. The looping GIFs are 640 pixels wide.
+
+### BAMBOO STAFF
+
+<p align="center"><strong>ORIGINAL → DETAILED → QUICK</strong></p>
+<p align="center">
+  <img src="docs/media/source-02.png" width="180" align="middle" alt="Original bamboo staff illustration"> &nbsp;→&nbsp;
+  <img src="docs/media/demo-02-d.gif" width="270" align="middle" alt="Detailed bamboo staff animation at 50 FPS"> &nbsp;→&nbsp;
+  <img src="docs/media/demo-02.gif" width="270" align="middle" alt="Quick bamboo staff animation at 50 FPS">
+</p>
+
+### TWO CHARACTERS
+
+<p align="center"><strong>ORIGINAL → DETAILED → QUICK</strong></p>
+<p align="center">
+  <img src="docs/media/source-01.png" width="180" align="middle" alt="Original two-character illustration"> &nbsp;→&nbsp;
+  <img src="docs/media/demo-01-d.gif" width="270" align="middle" alt="Detailed two-character animation at 50 FPS"> &nbsp;→&nbsp;
+  <img src="docs/media/demo-01.gif" width="270" align="middle" alt="Quick two-character animation at 50 FPS">
+</p>
+
+### WINTER SCENE
+
+<p align="center"><strong>ORIGINAL → DETAILED → QUICK</strong></p>
+<p align="center">
+  <img src="docs/media/source-03.png" width="180" align="middle" alt="Original winter scene illustration"> &nbsp;→&nbsp;
+  <img src="docs/media/demo-03-d.gif" width="270" align="middle" alt="Detailed winter scene animation at 50 FPS"> &nbsp;→&nbsp;
+  <img src="docs/media/demo-03.gif" width="270" align="middle" alt="Quick winter scene animation at 50 FPS">
+</p>
+
+These sample illustrations are not covered by the project's code license.
+Confirm permission to redistribute them before publishing these previews.
 
 ## DRAWING MODES
 
