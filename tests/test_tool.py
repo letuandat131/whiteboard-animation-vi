@@ -88,7 +88,7 @@ def test_every_public_setting_has_a_ui_control():
     app = importlib.import_module('app')
     demo = app.build_ui()
     assert set(demo.setting_controls) == {field.name for field in fields(config.Settings)}
-    assert demo.setting_controls['mode'].choices == [('Detailed (.d)', 'd'), ('Quick (.e)', 'e')]
+    assert demo.setting_controls['mode'].choices == [('Detailed', 'd'), ('Quick', 'e')]
 
 
 def test_cpu_export_is_a_real_mp4(tmp_path):

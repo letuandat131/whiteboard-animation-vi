@@ -11,15 +11,15 @@ choose the timing and style, and export an MP4.
 
 ## SEE THE ANIMATION
 
-Three examples, three rows: **ORIGINAL → DETAILED (.d) → QUICK (.e)**.
+Three examples, three rows: **ORIGINAL → DETAILED → QUICK**.
 Both modes use the same 8-second duration, a maximum frame size of 1280×720,
 and **50 FPS**. The looping GIFs are 640 pixels wide, displayed side by side.
 
 | **BAMBOO STAFF** | **TWO CHARACTERS** | **WINTER SCENE** |
 | :---: | :---: | :---: |
 | **ORIGINAL**<br><img src="docs/media/source-02.png" width="280" alt="Original bamboo staff illustration"> | **ORIGINAL**<br><img src="docs/media/source-01.png" width="280" alt="Original two-character illustration"> | **ORIGINAL**<br><img src="docs/media/source-03.png" width="280" alt="Original winter scene illustration"> |
-| **DETAILED (.d)**<br><img src="docs/media/demo-02-d.gif" width="280" alt="Detailed bamboo staff animation at 50 FPS"> | **DETAILED (.d)**<br><img src="docs/media/demo-01-d.gif" width="280" alt="Detailed two-character animation at 50 FPS"> | **DETAILED (.d)**<br><img src="docs/media/demo-03-d.gif" width="280" alt="Detailed winter scene animation at 50 FPS"> |
-| **QUICK (.e)**<br><img src="docs/media/demo-02.gif" width="280" alt="Quick bamboo staff animation at 50 FPS"> | **QUICK (.e)**<br><img src="docs/media/demo-01.gif" width="280" alt="Quick two-character animation at 50 FPS"> | **QUICK (.e)**<br><img src="docs/media/demo-03.gif" width="280" alt="Quick winter scene animation at 50 FPS"> |
+| **DETAILED**<br><img src="docs/media/demo-02-d.gif" width="280" alt="Detailed bamboo staff animation at 50 FPS"> | **DETAILED**<br><img src="docs/media/demo-01-d.gif" width="280" alt="Detailed two-character animation at 50 FPS"> | **DETAILED**<br><img src="docs/media/demo-03-d.gif" width="280" alt="Detailed winter scene animation at 50 FPS"> |
+| **QUICK**<br><img src="docs/media/demo-02.gif" width="280" alt="Quick bamboo staff animation at 50 FPS"> | **QUICK**<br><img src="docs/media/demo-01.gif" width="280" alt="Quick two-character animation at 50 FPS"> | **QUICK**<br><img src="docs/media/demo-03.gif" width="280" alt="Quick winter scene animation at 50 FPS"> |
 
 These sample illustrations are not covered by the project's code license.
 Confirm permission to redistribute them before publishing these previews.
@@ -36,7 +36,7 @@ Confirm permission to redistribute them before publishing these previews.
   pixels assigned to their color group. The palette controls the painting order;
   the output retains the source image's colors and shading.
 - **A DELIBERATE PAINTING ORDER.** Within the foreground, finish one color
-  group before switching colors. Mode **.e** then completes each background
+  group before switching colors. **Quick** mode then completes each background
   cluster in left-to-right order, using the original ink-aware region IDs.
 - **SHORTER, SYNCHRONIZED HAND TRAVEL.** Route refinement reduces travel
   between strokes while preserving the subject/color order. Brush contact and
@@ -55,8 +55,8 @@ Confirm permission to redistribute them before publishing these previews.
 
 | Mode | Foreground coloring | Background coloring |
 | --- | --- | --- |
-| **Detailed (.d)** | Complete color groups using the refined hand route. | Continue with color-group ordering and refined routing. |
-| **Quick (.e)** | Keep the same foreground route and timing as .d. | Finish each ink-aware cluster, ordered from left to right. |
+| **Detailed** | Complete color groups using the refined hand route. | Continue with color-group ordering and refined routing. |
+| **Quick** | Keep the same foreground route and timing as Detailed. | Finish each ink-aware cluster, ordered from left to right. |
 
 Both modes use the chosen duration and retain the same source image detail.
 The difference is the background stroke order.
@@ -183,10 +183,9 @@ settings = Settings(mode="e", duration=10, draw_percent=70, ink_percent=45)
 video_path, report = render_video(image, settings)
 ```
 
-Planner routes and moving hands are extracted from the validated `.d`/`.e`
-renderer, not a replacement effect. Changing timing or hand settings reuses
+Changing timing or hand settings reuses
 the in-memory image plan; only two plans are retained. CPU uses libx264;
-NVENC consumes GPU frames directly. `.e` changes the background stroke order,
+NVENC consumes GPU frames directly. Quick mode changes the background stroke order,
 not the global video duration or the ink/fill split.
 
 ## RELATED WORK & CREDITS

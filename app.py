@@ -73,7 +73,7 @@ def build_ui():
             with gr.Row(equal_height=False):
                 with gr.Column(scale=2, min_width=300):
                     controls['mode'] = setting_control(items_by_name['mode'])
-                    gr.Markdown('Both modes prioritize characters. **.e** colors background clusters from left to right.', elem_classes='hint')
+                    gr.Markdown('Both modes prioritize characters. **Quick** colors background clusters from left to right.', elem_classes='hint')
                 with gr.Column(scale=2, min_width=300):
                     with gr.Row():
                         for name in ('duration', 'fps'):

@@ -26,7 +26,7 @@ def test_controls_match_native_metadata_and_defaults():
                 assert component.maximum == item.metadata['high']
                 assert component.step == item.metadata['step']
         assert demo.setting_controls['mode'].choices == [
-            ('Detailed (.d)', 'd'), ('Quick (.e)', 'e')]
+            ('Detailed', 'd'), ('Quick', 'e')]
         rig = json.loads(demo.setting_controls['rig_json'].value)
         assert rig == {key: value for key, value in RIG_SETTINGS.items()
                        if key not in app.PROTECTED_RIG_KEYS}

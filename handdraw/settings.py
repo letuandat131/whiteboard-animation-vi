@@ -17,7 +17,7 @@ def control(default, label, group, low=None, high=None, step=1, choices=None):
 
 @dataclass(frozen=True)
 class Settings:
-    mode: str = control('d', 'Mode', 'Video', choices=[('Detailed (.d)', 'd'), ('Quick (.e)', 'e')])
+    mode: str = control('d', 'Mode', 'Video', choices=[('Detailed', 'd'), ('Quick', 'e')])
     duration: float = control(10., 'Duration (seconds)', 'Video', .1, 120, .1)
     draw_percent: float = control(70., 'Drawing & coloring (%)', 'Video', 5, 100, 1)
     ink_percent: float = control(45., 'Ink within drawing phase (%)', 'Video', 5, 95, 1)
