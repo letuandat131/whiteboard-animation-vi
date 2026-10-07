@@ -1,4 +1,6 @@
-# Handdraw
+# WHITEBOARD ANIMATION VI
+
+**CHARACTERS FIRST · COLOR GROUPS · INK-AWARE BOUNDARIES · MOVING REAL HANDS**
 
 Turn an illustration into a whiteboard animation: draw the lines, color the
 characters first, then finish the background with moving photographic hands.
@@ -7,52 +9,49 @@ Handdraw combines **subject-first coloring, color-grouped strokes and
 ink-aware region boundaries** in a local Gradio app. Upload an RGB/RGBA image,
 choose the timing and style, and export an MP4.
 
-## Animation previews
+## SEE THE ANIMATION
 
-Same input and timing for both modes: 8 seconds, 1280×720 at 30 FPS.
-GIF previews are 640 pixels wide at 15 FPS and loop automatically.
-Each example shows **original → .d → .e**, stacked vertically for a larger view.
+Three examples, three rows: **ORIGINAL → DETAILED (.d) → QUICK (.e)**.
+Both modes use the same 8-second duration, a maximum frame size of 1280×720,
+and **50 FPS**. The looping GIFs are 640 pixels wide, displayed side by side.
 
-### Example 1 · Character with a bamboo staff
+| **BAMBOO STAFF** | **TWO CHARACTERS** | **WINTER SCENE** |
+| :---: | :---: | :---: |
+| **ORIGINAL**<br><img src="docs/media/source-02.png" width="280" alt="Original bamboo staff illustration"> | **ORIGINAL**<br><img src="docs/media/source-01.png" width="280" alt="Original two-character illustration"> | **ORIGINAL**<br><img src="docs/media/source-03.png" width="280" alt="Original winter scene illustration"> |
+| **DETAILED (.d)**<br><img src="docs/media/demo-02-d.gif" width="280" alt="Detailed bamboo staff animation at 50 FPS"> | **DETAILED (.d)**<br><img src="docs/media/demo-01-d.gif" width="280" alt="Detailed two-character animation at 50 FPS"> | **DETAILED (.d)**<br><img src="docs/media/demo-03-d.gif" width="280" alt="Detailed winter scene animation at 50 FPS"> |
+| **QUICK (.e)**<br><img src="docs/media/demo-02.gif" width="280" alt="Quick bamboo staff animation at 50 FPS"> | **QUICK (.e)**<br><img src="docs/media/demo-01.gif" width="280" alt="Quick two-character animation at 50 FPS"> | **QUICK (.e)**<br><img src="docs/media/demo-03.gif" width="280" alt="Quick winter scene animation at 50 FPS"> |
 
-**Original image**
+These sample illustrations are not covered by the project's code license.
+Confirm permission to redistribute them before publishing these previews.
 
-<img src="docs/media/source-02.png" width="640" alt="Original 1">
+---
 
-**Detailed (.d)**
+## WHAT MAKES IT DIFFERENT
 
-![Detailed 1](docs/media/demo-02-d.gif)
-
-**Quick (.e)**
-
-![Quick 1](docs/media/demo-02.gif)
-
-## Highlights
-
-- **Characters before scenery.** SkyTNT Anime Segmentation (ISNet) separates
+- **CHARACTERS BEFORE SCENERY.** SkyTNT Anime Segmentation (ISNet) separates
   the foreground. Coloring completes the detected foreground before moving
   to the background, keeping the characters visible earlier.
-- **Color groups shaped by the lines.** Similar colors are grouped in Lab
+- **COLOR GROUPS SHAPED BY THE LINES.** Similar colors are grouped in Lab
   space, and ink boundaries help split connected regions. Brush strokes reveal
   pixels assigned to their color group. The palette controls the painting order;
   the output retains the source image's colors and shading.
-- **A deliberate painting order.** Within the foreground, finish one color
+- **A DELIBERATE PAINTING ORDER.** Within the foreground, finish one color
   group before switching colors. Mode **.e** then completes each background
   cluster in left-to-right order, using the original ink-aware region IDs.
-- **Shorter, synchronized hand travel.** Route refinement reduces travel
+- **SHORTER, SYNCHRONIZED HAND TRAVEL.** Route refinement reduces travel
   between strokes while preserving the subject/color order. Brush contact and
   pixel reveal share one timeline, with eased movement and pen lifts between
   strokes.
-- **Moving photographic hands and cleaner lines.** Separate drawing/coloring
+- **MOVING PHOTOGRAPHIC HANDS AND CLEANER LINES.** Separate drawing/coloring
   hand assets have wrist, finger and shadow motion. Multiscale contrast filtering
   and small-component cleanup reduce specks in the extracted line map.
-- **Local UI and GPU rendering.** Native Gradio controls expose timing, lines,
+- **LOCAL UI AND GPU RENDERING.** Native Gradio controls expose timing, lines,
   colors, hands and export options. CUDA supports palette clustering and frame
   composition; optional NVENC encodes GPU frames directly. CPU/libx264 export
   and a Python API are also available. Recent image plans are cached for reuse
   when adjusting timing or hand settings.
 
-## Modes
+## DRAWING MODES
 
 | Mode | Foreground coloring | Background coloring |
 | --- | --- | --- |
@@ -62,7 +61,7 @@ Each example shows **original → .d → .e**, stacked vertically for a larger v
 Both modes use the chosen duration and retain the same source image detail.
 The difference is the background stroke order.
 
-## How it works
+## HOW IT WORKS
 
 1. Fit the image to the output frame, extract and clean its lines, and detect
    foreground when subject priority is enabled.
@@ -76,40 +75,7 @@ The difference is the background stroke order.
 Line extraction uses contrast and multiscale filtering; ISNet supplies the
 foreground mask. Ink boundaries are inferred from that line map.
 
-## More previews
-
-### Example 2 · Two characters
-
-**Original image**
-
-<img src="docs/media/source-01.png" width="640" alt="Original 2">
-
-**Detailed (.d)**
-
-![Detailed 2](docs/media/demo-01-d.gif)
-
-**Quick (.e)**
-
-![Quick 2](docs/media/demo-01.gif)
-
-### Example 3 · Winter city scene
-
-**Original image**
-
-<img src="docs/media/source-03.png" width="640" alt="Original 3">
-
-**Detailed (.d)**
-
-![Detailed 3](docs/media/demo-03-d.gif)
-
-**Quick (.e)**
-
-![Quick 3](docs/media/demo-03.gif)
-
-These sample illustrations are not covered by a Handdraw code license.
-Confirm permission to redistribute them before publishing these previews.
-
-## Install (Windows)
+## INSTALL (WINDOWS)
 
 Use Python 3.11 or 3.12, 64-bit. Run these PowerShell commands from the repository:
 
@@ -140,7 +106,7 @@ Select **CPU** and **CPU H.264** in the UI. GPU defaults are not silently change
 when CUDA or NVENC is unavailable. CPU H.264 export requires FFmpeg with libx264
 available on `PATH`.
 
-## Model
+## SUBJECT SEGMENTATION MODEL
 
 Download the checkpoint explicitly before using subject segmentation:
 
@@ -160,7 +126,7 @@ Target: `assets/v181d/model.safetensors` (ignored by Git).
 - Size: `203982056` bytes
 - SHA256: `3351563ba8b61a01a66bacb79cf36aabce2da62d88b7606a719f573f23fe5d3e`
 
-## Run
+## RUN LOCALLY
 
 Double-click `start.bat`, or run:
 
@@ -194,7 +160,7 @@ native label, default, bounds, step, and choices. Advanced JSON starts with the
 native rig/filter defaults; protected rig and dedicated wrist keys are excluded.
 The backend validates all settings before rendering.
 
-## Tests
+## TESTS
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
@@ -204,7 +170,7 @@ The backend validates all settings before rendering.
 Tests cover UI/settings synchronization, native planning, validation, verified
 downloads, and a real CPU MP4 encode/decode. They do not download the checkpoint.
 
-## Python Usage
+## PYTHON USAGE
 
 ```python
 import numpy as np
@@ -223,7 +189,7 @@ the in-memory image plan; only two plans are retained. CPU uses libx264;
 NVENC consumes GPU frames directly. `.e` changes the background stroke order,
 not the global video duration or the ink/fill split.
 
-## Related work
+## RELATED WORK & CREDITS
 
 The Grid path implementation derives from
 [SRT Whiteboard Animation](https://github.com/geeklee/srt-whiteboard-animation).
@@ -236,7 +202,7 @@ image; SRT/storyboard orchestration remains outside this app.
 Upstream notices are preserved in `vendor_runtime/` and documented in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-## Licensing
+## LICENSE
 
 Original project code contributed by `letuandat131` is dedicated to the public
 domain under [CC0 1.0 Universal](LICENSE). It may be used, modified and

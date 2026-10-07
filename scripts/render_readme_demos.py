@@ -29,14 +29,14 @@ def main():
             rgb = np.asarray(image.convert('RGB'))
             image.convert('RGB').save(previews / f'source-{index:02d}.png')
         video, report = render_video(
-            rgb, Settings(mode=args.mode, duration=8, width=1280, height=720, fps=30),
+            rgb, Settings(mode=args.mode, duration=8, width=1280, height=720, fps=50),
             output_dir=root / 'outputs' / 'readme-demos')
         suffix = '-d' if args.mode == 'd' else ''
         gif = previews / f'demo-{index:02d}{suffix}.gif'
         subprocess.run([
             ffmpeg_binary(), '-hide_banner', '-loglevel', 'error', '-y', '-i', str(video),
             '-filter_complex',
-            '[0:v]fps=15,scale=640:-2:flags=lanczos,split[a][b];'
+            '[0:v]fps=50,scale=640:-2:flags=lanczos,split[a][b];'
             '[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=dither=sierra2_4a',
             '-loop', '0', str(gif),
         ], check=True)
