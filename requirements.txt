@@ -1,0 +1,9 @@
+gradio==6.29.1
+torch==2.8.0
+torchvision==0.23.0
+numpy>=2.4,<2.5
+opencv-python>=5.0,<6
+scipy>=1.17,<1.18
+scikit-image>=0.26,<0.27
+safetensors>=0.8,<0.9
+Pillow>=11,<13

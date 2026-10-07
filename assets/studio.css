@@ -1,0 +1,12 @@
+.gradio-container { max-width: 1320px !important; margin: auto; }
+#studio-header { padding: 8px 0; }
+#studio-header h2 { letter-spacing: -.02em; }
+#studio-header p, .hint p { color: var(--body-text-color-subdued); }
+#quick-settings { padding: 12px; }
+.hint p { font-size: 13px; line-height: 1.5; }
+#export-row { align-items: stretch; }
+#export-row > button { min-height: 54px; }
+@media (max-width: 760px) {
+  #media-row, #advanced-settings { flex-direction: column; }
+  #media-row > .column, #advanced-settings > .column { min-width: 0 !important; }
+}
