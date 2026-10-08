@@ -213,10 +213,6 @@ the in-memory image plan; only two plans are retained. CPU uses libx264;
 NVENC consumes GPU frames directly. Quick mode changes the background stroke order,
 not the global video duration or the ink/fill split.
 
-## CREDITS
-
-Grid drawing code adapted from [SRT Whiteboard Animation](https://github.com/geeklee/srt-whiteboard-animation).
-
 ## LICENSE
 
 Original project code contributed by `letuandat131` is dedicated to the public
