@@ -213,18 +213,9 @@ the in-memory image plan; only two plans are retained. CPU uses libx264;
 NVENC consumes GPU frames directly. Quick mode changes the background stroke order,
 not the global video duration or the ink/fill split.
 
-## RELATED WORK & CREDITS
+## CREDITS
 
-The Grid path implementation derives from
-[SRT Whiteboard Animation](https://github.com/geeklee/srt-whiteboard-animation).
-That project provides a subtitle-driven storyboard and annotation workflow.
-Handdraw develops the image-rendering workflow with automatic foreground
-segmentation, color-group routing, left-to-right background clusters, animated
-photographic hands and a local Gradio interface. Its current input is a single
-image; SRT/storyboard orchestration remains outside this app.
-
-Upstream notices are preserved in `vendor_runtime/` and documented in
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Grid drawing code adapted from [SRT Whiteboard Animation](https://github.com/geeklee/srt-whiteboard-animation).
 
 ## LICENSE
 
