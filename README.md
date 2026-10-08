@@ -224,3 +224,5 @@ Third-party and upstream-derived code retains its own license and notices; see
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and `vendor_runtime/`.
 The CC0 dedication does not cover hand images, demo artwork or model weights.
 Model weights remain a separate upstream artifact, not part of the Git checkout.
+
+Grid drawing credit: © 2026 **江哥是老登啊** — [SRT Whiteboard Animation](https://github.com/geeklee/srt-whiteboard-animation), [MIT License](vendor_runtime/srt_whiteboard/LICENSE).
