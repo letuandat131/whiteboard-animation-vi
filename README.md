@@ -4,14 +4,17 @@
   <img src="docs/media/demo-02-d.gif" width="640" alt="Whiteboard animation of a character with a bamboo staff">
 </p>
 
-**CHARACTERS FIRST · COLOR GROUPS · INK-AWARE BOUNDARIES · MOVING REAL HANDS**
+**IMAGE-TO-WHITEBOARD ANIMATION · CHARACTER-FIRST COLORING · INK-AWARE COLOR GROUPS · ANIMATED PHOTOGRAPHIC HANDS**
 
-Turn an illustration into a whiteboard animation: draw the lines, color the
-characters first, then finish the background with moving photographic hands.
+Turn an existing illustration into a hand-drawn animation: draw the lines,
+color the characters first, then finish the background. Upload an RGB/RGBA
+image, choose the timing and style in the local Gradio UI, and export an MP4.
 
-Handdraw combines **subject-first coloring, color-grouped strokes and
-ink-aware region boundaries** in a local Gradio app. Upload an RGB/RGBA image,
-choose the timing and style, and export an MP4.
+Builds on the grid-based drawing approach of
+[geeklee/srt-whiteboard-animation](https://github.com/geeklee/srt-whiteboard-animation),
+adding **automatic foreground segmentation, refined coloring routes, a local
+Gradio interface, and CUDA/NVENC rendering**. This tool focuses on animating
+existing images, rather than parsing subtitles or generating storyboards.
 
 ---
 
